@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+model Reservation {
+  id               String            @id @default(cuid())
+  customerName     String
+  email            String
+  phone            String
+  guests           Int
+  reservationDate  DateTime          @db.Date
+  reservationTime  String            // "HH:mm" format
+  notes            String?
+  status           ReservationStatus @default(PENDING)
+  confirmationCode String            @unique
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@index([reservationDate, reservationTime])
+  @@index([confirmationCode])
+  @@index([email])
+  @@index([status])
+}
+
+model RestaurantSettings {
+  id                  String @id @default("default")
+  openingTime         String @default("10:00")
+  closingTime         String @default("22:00")
+  tablesAvailable     Int    @default(20)
+  slotDuration        Int    @default(30)
+  maxGuestsPerBooking Int    @default(10)
+}
+
+enum InquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+}
+
+model Inquiry {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  subject     String
+  message     String
+  status      InquiryStatus @default(NEW)
+  ipAddress   String?
+  userAgent   String?
+  spamScore   Int           @default(0)
+  isSpam      Boolean       @default(false)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([status])
+  @@index([email])
+  @@index([isSpam])
+  @@index([createdAt])
+}

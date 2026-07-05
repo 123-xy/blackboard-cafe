@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ImagePlaceholder from "@/components/ImagePlaceholder";
 import CoffeeCupSteam from "@/components/CoffeeCupSteam";
 import ClickableImage from "@/components/ClickableImage";
 
@@ -34,10 +33,10 @@ const VISION_POINTS = [
 
 const LEADERS = [
   {
-    name: "Jagannath Kallakurchi",
+    name: "Dr. Jagannath Kallakurchi",
     role: "FOUNDER & MANAGING DIRECTOR",
     bio: "Ran Choice Solutions, an IT services firm, for 30+ years before founding Blackboard Café, shaping its vision of healthy, vegetarian and vegan hospitality — “a second home between work and home.”",
-    tags: ["30+ Years Experience", "IIT Roorkee", "ISB", "Harvard Business School"],
+    tags: ["30+ Years Experience", "IIT Roorkee", "IIT Mumbai", "ISB", "Harvard Business School"],
     img: "/images/leader-founder.webp",
   },
   {
@@ -50,7 +49,7 @@ const LEADERS = [
 ];
 
 const CHEF = {
-  role: "HEAD CHEF",
+  role: "CHEF",
   quote:
     "Good food starts with good ingredients and a kitchen that never cuts corners — that's the standard we hold at every counter, every day.",
   bio: "Leads Blackboard Café's kitchens with over 15 years of multi-cuisine experience, blending Hyderabadi classics with health-conscious, farm-fresh cooking. Trains and mentors every chef across our café, corporate, and institutional kitchens to keep quality and consistency high at scale.",
@@ -125,17 +124,6 @@ export default function AboutPage() {
         <p className="m-0 text-lg leading-[1.9] text-body italic">
           Every meal we serve reflects our belief that a café should feel like a second home — a place where people connect, recharge, and enjoy food made with care.
         </p>
-        <div className="mt-10 grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
-          <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "4/3" }}>
-            <ImagePlaceholder label="Drop a café photo" />
-          </div>
-          <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "4/3" }}>
-            <ImagePlaceholder label="Drop a food / dining photo" />
-          </div>
-          <div className="overflow-hidden rounded-2xl" style={{ aspectRatio: "4/3" }}>
-            <ImagePlaceholder label="Drop a team / event photo" />
-          </div>
-        </div>
       </section>
 
       {/* Timeline */}
@@ -208,7 +196,14 @@ export default function AboutPage() {
             {LEADERS.map((l) => (
               <div key={l.name} className="flex flex-wrap gap-6 rounded-[18px] bg-surface p-9">
                 <div className="relative h-24 w-24 flex-none overflow-hidden rounded-full">
-                  <ClickableImage src={l.img} alt={l.name} fill sizes="96px" imgClassName="object-cover" />
+                  <ClickableImage
+                    src={l.img}
+                    alt={l.name}
+                    fill
+                    sizes="96px"
+                    imgClassName="object-cover"
+                    imgStyle={{ objectPosition: "50% 12%" }}
+                  />
                 </div>
                 <div>
                   <div className="mb-1 font-display text-xl font-bold text-heading">{l.name}</div>
@@ -234,15 +229,22 @@ export default function AboutPage() {
           <div className="mb-14 text-center">
             <div className="mx-auto mb-6 h-[5px] w-16 rounded-full bg-gold" />
             <h2 className="m-0 mb-4 font-display font-extrabold text-heading" style={{ fontSize: "clamp(26px,4.5vw,36px)" }}>
-              MEET OUR EXPERT CHEFS
+              MEET OUR EXPERT CHEF
             </h2>
             <p className="mx-auto max-w-[640px] text-base text-muted">
               Behind every memorable meal is a team of passionate culinary experts. Our experienced chefs combine creativity, hygiene and excellence to deliver world-class dining and catering experiences.
             </p>
           </div>
           <div className="mx-auto flex max-w-[900px] flex-wrap items-center gap-9 rounded-[18px] bg-surface p-9 sm:p-11">
-            <div className="mx-auto h-40 w-40 flex-none overflow-hidden rounded-full sm:mx-0">
-              <ImagePlaceholder label="Drop a photo of the head chef" />
+            <div className="relative mx-auto h-40 w-40 flex-none overflow-hidden rounded-full sm:mx-0">
+              <ClickableImage
+                src="/images/chef-head.jpg"
+                alt="Head chef plating a dish"
+                fill
+                sizes="160px"
+                imgClassName="object-cover"
+                imgStyle={{ objectPosition: "50% 22%" }}
+              />
             </div>
             <div className="min-w-[240px] flex-1 text-center sm:text-left">
               <div className="mb-4 font-display text-xl font-bold text-gold-text">{CHEF.role}</div>
@@ -323,13 +325,14 @@ export default function AboutPage() {
           <p className="mx-auto mb-10 max-w-[600px] text-base text-muted">
             Recognized back-to-back at the HYBIZ TV Food Awards for excellence in food and hospitality.
           </p>
-          <div className="relative mb-7 overflow-hidden rounded-2xl" style={{ aspectRatio: "3/2" }}>
+          <div className="relative mb-7 overflow-hidden rounded-2xl" style={{ aspectRatio: "3/4" }}>
             <ClickableImage
               src="/images/hybiz-awards.jpg"
               alt="HYBIZ TV Food Awards trophies — 2024 and 2025"
               fill
               sizes="1000px"
               imgClassName="object-cover"
+              imgStyle={{ objectPosition: "50% 0%" }}
             />
           </div>
           <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>

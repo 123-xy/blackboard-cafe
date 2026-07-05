@@ -25,9 +25,9 @@ const SLIDES = [
 ];
 
 const HIGHLIGHTS = [
-  { icon: "🥐", title: "Cafe Dining", desc: "All-day breakfast, coffee and comfort food in a cozy, co-working friendly setting.", placeholder: "Drop a cafe dining photo", img: null as string | null },
+  { icon: "🥐", title: "Cafe Dining", desc: "All-day breakfast, coffee and comfort food in a cozy, co-working friendly setting.", placeholder: "Drop a cafe dining photo", img: "/images/cafe-dining.jpg" as string | null },
   { icon: "🎓", title: "Institutional Catering", desc: "Nutritious, hygienic meals for 4,000+ students daily, with cashless meal-card payment.", placeholder: "Drop an institutional catering photo", img: "/images/institutional-catering.png" },
-  { icon: "🏢", title: "Corporate Catering", desc: "Customized menus for 1,000+ employees, run from centralized kitchens.", placeholder: "Drop a corporate catering photo", img: "/images/corporate-catering.png" },
+  { icon: "🏢", title: "Corporate Catering", desc: "Customized menus for 1,000+ employees, run from centralized kitchens.", placeholder: "Drop a corporate catering photo", img: "/images/corporate-catering-home.jpg" },
   { icon: "🎪", title: "Event Catering", desc: "High-volume catering for exhibitions and conferences, including HITEX Exhibition Centre.", placeholder: "Drop an event catering photo", img: "/images/event-exhibition-catering.jpg" },
 ];
 
@@ -404,7 +404,7 @@ export default function HomeClient() {
             <div className="m-0 mb-5 text-[15px] leading-[1.8] text-body italic">
               &quot;Over 30 years of hospitality experience, built on a simple idea — every café should feel like a second home between work and home.&quot;
             </div>
-            <div className="font-display text-base font-bold text-heading">Dr. Jagannath Kallakurichi</div>
+            <div className="font-display text-base font-bold text-heading">Dr. Jagannath Kallakurchi</div>
             <div className="mt-0.5 text-[13px] font-semibold tracking-[0.5px] text-gold-text">FOUNDER, BLACKBOARD CAFE</div>
             <Link href="/about" className="mt-5 inline-block text-sm font-semibold text-heading underline">
               Meet the leadership team →
